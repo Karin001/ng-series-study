@@ -14,6 +14,7 @@ import { InitialFormComponent } from './form/Initial-form/Initial-form.component
 import { TemplateDrivenFormComponent } from './form/template-driven-form/template-driven-form.component';
 import { ValidationFormComponent } from './form/validation-form/validation-form.component';
 import { ReactiveFormComponent } from './form/reactive-form/reactive-form.component';
+import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component';
 
 const routes: Routes = [
   { path: 'structural-directive', component: StructuralDirectiveComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'template-driven-form', component: TemplateDrivenFormComponent },
   { path: 'validation-form', component: ValidationFormComponent },
   { path: 'reactive-form', component: ReactiveFormComponent },
+  { path: 'dynamic-form', component: DynamicFormComponent },
 ];
 
 @NgModule({

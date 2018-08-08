@@ -29,6 +29,9 @@ import { TemplateDrivenFormComponent } from './form/template-driven-form/templat
 import { ValidationFormComponent } from './form/validation-form/validation-form.component';
 import { ForbiddenValidatorDirective } from './form/validation-form//forbidden-name.directive';
 import { ReactiveFormComponent } from './form/reactive-form/reactive-form.component';
+import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component';
+import { ShowQuestionComponent } from './form/dynamic-form/show-question/show-question.component';
+
 
 const COMPONENTS_DECLARATIONS = [
     StructuralDirectiveComponent,
@@ -51,7 +54,9 @@ const COMPONENTS_DECLARATIONS = [
     InitialFormComponent,
     TemplateDrivenFormComponent,
     ValidationFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    DynamicFormComponent,
+    ShowQuestionComponent,
 ];
 const DIRECTIVE_DECLARATIONS = [
     NssMilkTeaDirective,
