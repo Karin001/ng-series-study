@@ -10,11 +10,12 @@ import { AttributeDirectiveComponent } from './directive/attribute-directive/att
 import { DynamicComponentComponent } from './component/dynamic-component/dynamic-component.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
-import { InitialFormComponent } from './form/Initial-form/Initial-form.component';
+import { InitialFormComponent } from './form/Initial-form/initial-form.component';
 import { TemplateDrivenFormComponent } from './form/template-driven-form/template-driven-form.component';
 import { ValidationFormComponent } from './form/validation-form/validation-form.component';
 import { ReactiveFormComponent } from './form/reactive-form/reactive-form.component';
 import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component';
+import { ServiceComponent } from './service/service.component';
 
 const routes: Routes = [
   { path: 'structural-directive', component: StructuralDirectiveComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'validation-form', component: ValidationFormComponent },
   { path: 'reactive-form', component: ReactiveFormComponent },
   { path: 'dynamic-form', component: DynamicFormComponent },
+  { path: 'service', component: ServiceComponent },
 ];
 
 @NgModule({

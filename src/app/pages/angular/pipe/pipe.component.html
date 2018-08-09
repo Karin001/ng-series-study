@@ -19,7 +19,7 @@
     <h2 id="DatePipe">DatePipe</h2>
     管道的格式如下
     <code-mirror [code]="code1"></code-mirror>
-    通过格式我们可以看到,在使用模板引用的时候 通过 <span class="key-word">|</span> 将值与管道分离,管道后面的参数通过 <span class="key-word">:</span>进行表示,以这个管道格式为例,意思是:将 <span class="key-word">value_expression</span>的值流入 <span class="key-word">pipeName</span>,并且参数为 <span class="key-word">agr1</span>、<span class="key-word">agr2</span>. <br/>
+    通过格式我们可以看到,在使用模板引用的时候 通过 <span class="key-word">|</span> 将值与管道分离,管道后面的参数通过冒号进行分隔,以这个管道格式为例,意思是:将 <span class="key-word">value_expression</span>的值流入 <span class="key-word">pipeName</span>,并且参数为 <span class="key-word">agr1</span>、<span class="key-word">agr2</span>. <br/>
     Angular内置了许多的管道,我们以
     <span class="key-word">DatePipe</span>为例,现在我们尝试使用时间管道和不使用时间管道,观察其结果.
     <nz-tabset>
@@ -94,7 +94,7 @@
     <code-mirror [code]="code5"></code-mirror>
     Angular提供了不止
     <span class="key-word">DatePipe</span> 一种,更多的管道类型请前往
-    <a href="https://angular.cn/api?type=pipe" target="view_window">官方文档</a>查看,在此不一一距离了.
+    <a href="https://angular.cn/api?type=pipe" target="view_window">官方文档</a>查看,在此不一一举例了.
 </div>
 <nz-anchor class="anchor">
     <nz-link nzHref="#resume" nzTitle="概述"></nz-link>

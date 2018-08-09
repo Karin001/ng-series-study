@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    templateUrl: './Initial-form.component.html',
-    styleUrls: ['./Initial-form.component.less']
+    templateUrl: './initial-form.component.html',
+    styleUrls: ['./initial-form.component.less']
 })
 export class InitialFormComponent {
     value;

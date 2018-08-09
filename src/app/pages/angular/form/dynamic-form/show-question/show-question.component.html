@@ -10,6 +10,5 @@
         <nz-select style="width: 120px;" nzAllowClear [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
             <nz-option *ngFor="let opt of question.options" [nzValue]="opt.key" [nzLabel]="opt.value"></nz-option>
         </nz-select>
-        
     </div>
 </div>

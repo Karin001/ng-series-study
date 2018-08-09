@@ -24,13 +24,17 @@ import { PipeComponent } from './pipe/pipe.component';
 import { ShapePipe } from './pipe/shape-pipe/shape.pipe';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
 import { EmotionComponent } from './lifecycle/emotion/emotion.component';
-import { InitialFormComponent } from './form/Initial-form/Initial-form.component';
+import { InitialFormComponent } from './form/Initial-form/initial-form.component';
 import { TemplateDrivenFormComponent } from './form/template-driven-form/template-driven-form.component';
 import { ValidationFormComponent } from './form/validation-form/validation-form.component';
-import { ForbiddenValidatorDirective } from './form/validation-form//forbidden-name.directive';
+import { ForbiddenValidatorDirective } from './form/validation-form/forbidden-name.directive';
 import { ReactiveFormComponent } from './form/reactive-form/reactive-form.component';
 import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component';
 import { ShowQuestionComponent } from './form/dynamic-form/show-question/show-question.component';
+import { ServiceComponent } from './service/service.component';
+import { ServiceChildComponent } from './service/child/service/service-child.component';
+import { ComponentChildComponent } from './service/child/component/component-child.component';
+import { RootService } from './service/service/demo.service';
 
 
 const COMPONENTS_DECLARATIONS = [
@@ -57,6 +61,9 @@ const COMPONENTS_DECLARATIONS = [
     ReactiveFormComponent,
     DynamicFormComponent,
     ShowQuestionComponent,
+    ServiceComponent,
+    ServiceChildComponent,
+    ComponentChildComponent,
 ];
 const DIRECTIVE_DECLARATIONS = [
     NssMilkTeaDirective,
@@ -76,6 +83,9 @@ const COMPONENTS_ENTRY = [AddPersonComponent];
         ShapePipe,
         ForbiddenValidatorDirective
     ],
-    entryComponents: COMPONENTS_ENTRY
+    entryComponents: COMPONENTS_ENTRY,
+    providers:[
+        RootService
+    ]
 })
 export class AngularModule { }
