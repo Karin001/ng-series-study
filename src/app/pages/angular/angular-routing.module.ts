@@ -10,7 +10,7 @@ import { AttributeDirectiveComponent } from './directive/attribute-directive/att
 import { DynamicComponentComponent } from './component/dynamic-component/dynamic-component.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
-import { InitialFormComponent } from './form/Initial-form/initial-form.component';
+import { InitialFormComponent } from './form/initial-form/initial-form.component';
 import { TemplateDrivenFormComponent } from './form/template-driven-form/template-driven-form.component';
 import { ValidationFormComponent } from './form/validation-form/validation-form.component';
 import { ReactiveFormComponent } from './form/reactive-form/reactive-form.component';

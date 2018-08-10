@@ -24,7 +24,7 @@ import { PipeComponent } from './pipe/pipe.component';
 import { ShapePipe } from './pipe/shape-pipe/shape.pipe';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
 import { EmotionComponent } from './lifecycle/emotion/emotion.component';
-import { InitialFormComponent } from './form/Initial-form/initial-form.component';
+import { InitialFormComponent } from './form/initial-form/initial-form.component';
 import { TemplateDrivenFormComponent } from './form/template-driven-form/template-driven-form.component';
 import { ValidationFormComponent } from './form/validation-form/validation-form.component';
 import { ForbiddenValidatorDirective } from './form/validation-form/forbidden-name.directive';

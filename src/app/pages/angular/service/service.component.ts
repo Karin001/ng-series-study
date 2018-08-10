@@ -14,7 +14,7 @@ export class ServiceComponent {
         private loginService: LoginService,
         private nzMessageService: NzMessageService
     ) { }
-    addAndShowRoot(value: any) {
+    addAndShowRoot() {
         this.rootService.add();
     }
     addAndShowComponent() {
@@ -175,7 +175,7 @@ export class ServiceComponent {
         constructor(
             private rootService: RootService
         ) { }
-        addAndShowRoot(value: any) {
+        addAndShowRoot() {
             this.rootService.add();
         }
     }
