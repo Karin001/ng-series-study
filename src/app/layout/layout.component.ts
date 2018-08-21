@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'layout',
@@ -8,4 +8,11 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
 })
 export class LayoutComponent {
+  constructor(router: Router) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        window.scrollTo(0, 0);
+      }
+    });
+  }
 }
