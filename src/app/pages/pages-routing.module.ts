@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 // layout
 import { LayoutComponent } from '../layout/layout.component';
 
@@ -12,13 +12,19 @@ const routes: Routes = [
       { path: '', redirectTo: '/project/introduction', pathMatch: 'full' },
       { path: 'project', loadChildren: './project/project.module#ProjectModule' },
       { path: 'angular', loadChildren: './angular/angular.module#AngularModule' },
-      { path: '**', redirectTo: '/project/introduction', pathMatch: 'full' },
+      { path: '**', redirectTo: '/project/introduction' },
     ],
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: false })],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      useHash: false,
+      preloadingStrategy: PreloadAllModules
+    }
+  )],
   exports: [RouterModule],
 })
-export class PagesRoutingModule {}
+export class PagesRoutingModule { }

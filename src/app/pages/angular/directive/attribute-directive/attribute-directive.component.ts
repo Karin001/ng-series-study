@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'attribute-directive',
-    templateUrl: './attribute-directive-component.html',
-    styleUrls: ['./attribute-directive-component.less']
+    templateUrl: './attribute-directive.component.html',
+    styleUrls: ['./attribute-directive.component.less']
 })
 export class AttributeDirectiveComponent {
     hobby = 'sweet';

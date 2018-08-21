@@ -5,8 +5,8 @@ import { CreateComponent } from './create/create.component';
 import { ConventionalUsageComponent } from './conventional-usage/conventional-usage.component';
 import { ComponentCommunicationComponent } from './component/component-communication/component-communication.component';
 import { ComponentStylesComponent } from './component/component-styles/component-styles.component';
-import { StructuralDirectiveComponent } from './directive/structural-directive/structural-directive-component';
-import { AttributeDirectiveComponent } from './directive/attribute-directive/attribute-directive-component';
+import { StructuralDirectiveComponent } from './directive/structural-directive/structural-directive.component';
+import { AttributeDirectiveComponent } from './directive/attribute-directive/attribute-directive.component';
 import { DynamicComponentComponent } from './component/dynamic-component/dynamic-component.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
@@ -16,6 +16,11 @@ import { ValidationFormComponent } from './form/validation-form/validation-form.
 import { ReactiveFormComponent } from './form/reactive-form/reactive-form.component';
 import { DynamicFormComponent } from './form/dynamic-form/dynamic-form.component';
 import { ServiceComponent } from './service/service.component';
+import { InitRouterComponent } from './router/init-router/init-router.component';
+import { AdvancedRouterComponent } from './router/advanced-router/advanced-router.component';
+import { ParamsRouterComponent } from './router/advanced-router/demo/params-router.component';
+import { AuthGuardTrue, AuthGuardFalse, CanDeactivateGuard } from './router/advanced-router/authGuard/auth-guard.service';
+import { DemoDeactiveComponent } from './router/advanced-router/demo-deactive/demo-deactive.component';
 
 const routes: Routes = [
   { path: 'structural-directive', component: StructuralDirectiveComponent },
@@ -33,6 +38,12 @@ const routes: Routes = [
   { path: 'reactive-form', component: ReactiveFormComponent },
   { path: 'dynamic-form', component: DynamicFormComponent },
   { path: 'service', component: ServiceComponent },
+  { path: 'init-router', component: InitRouterComponent },
+  { path: 'advanced-router', component: AdvancedRouterComponent },
+  { path: 'params-router', component: ParamsRouterComponent },
+  { path: 'params-router-true', component: ParamsRouterComponent, canActivate: [AuthGuardTrue] },
+  { path: 'params-router-false', component: ParamsRouterComponent, canActivate: [AuthGuardFalse] },
+  { path: 'advanced-router-deactive', component: DemoDeactiveComponent, canDeactivate: [CanDeactivateGuard] },
 ];
 
 @NgModule({

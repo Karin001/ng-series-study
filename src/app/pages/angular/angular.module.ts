@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
-import { Routes, RouterModule } from '@angular/router';
 import { AngularRoutingModule } from './angular-routing.module';
 
 import { CreateComponent } from './create/create.component';
 import { ConventionalUsageComponent } from './conventional-usage/conventional-usage.component';
 import { InitPageComponent } from './create/init-page/init-page.component';
-import { StructuralDirectiveComponent } from './directive/structural-directive/structural-directive-component';
-import { AttributeDirectiveComponent } from './directive/attribute-directive/attribute-directive-component';
+import { StructuralDirectiveComponent } from './directive/structural-directive/structural-directive.component';
+import { AttributeDirectiveComponent } from './directive/attribute-directive/attribute-directive.component';
 import { NssMilkTeaDirective } from './directive/structural-directive/nss-milk-tea-directive/milk-tea.directive';
 import { NssStyleDirective } from './directive/attribute-directive/nss-style-directive/nss-style.directive';
 import { ComponentCommunicationComponent } from './component/component-communication/component-communication.component';
@@ -35,9 +34,14 @@ import { ServiceComponent } from './service/service.component';
 import { ServiceChildComponent } from './service/child/service/service-child.component';
 import { ComponentChildComponent } from './service/child/component/component-child.component';
 import { RootService } from './service/service/demo.service';
-
+import { InitRouterComponent } from './router/init-router/init-router.component';
+import { AdvancedRouterComponent } from './router/advanced-router/advanced-router.component';
+import { ParamsRouterComponent } from './router/advanced-router/demo/params-router.component';
+import { AuthGuardTrue, AuthGuardFalse, CanDeactivateGuard } from './router/advanced-router/authGuard/auth-guard.service';
+import { DemoDeactiveComponent } from './router/advanced-router/demo-deactive/demo-deactive.component';
 
 const COMPONENTS_DECLARATIONS = [
+    DemoDeactiveComponent,
     StructuralDirectiveComponent,
     AttributeDirectiveComponent,
     CreateComponent,
@@ -64,6 +68,9 @@ const COMPONENTS_DECLARATIONS = [
     ServiceComponent,
     ServiceChildComponent,
     ComponentChildComponent,
+    InitRouterComponent,
+    AdvancedRouterComponent,
+    ParamsRouterComponent,
 ];
 const DIRECTIVE_DECLARATIONS = [
     NssMilkTeaDirective,
@@ -85,7 +92,10 @@ const COMPONENTS_ENTRY = [AddPersonComponent];
     ],
     entryComponents: COMPONENTS_ENTRY,
     providers:[
-        RootService
+        RootService,
+        AuthGuardTrue,
+        AuthGuardFalse,
+        CanDeactivateGuard
     ]
 })
 export class AngularModule { }
