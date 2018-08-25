@@ -5,10 +5,15 @@ import { RouterModule } from '@angular/router';
 // region: third libs
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CodemirrorModule } from 'ng2-codemirror';
+//自定义的
+import { CodemirrorComponent } from '../pages/child-common/codemirror/codemirror.component';
 
 const THIRDMODULES = [
   NgZorroAntdModule,
-  CodemirrorModule
+  CodemirrorModule,
+];
+const CUSTOM_COMPONENT = [
+  CodemirrorComponent
 ];
 // endregion
 
@@ -19,9 +24,10 @@ const THIRDMODULES = [
     RouterModule,
     ReactiveFormsModule,
     // third libs
-    ...THIRDMODULES,
+    ...THIRDMODULES
   ],
   declarations: [
+    CUSTOM_COMPONENT
   ],
   exports: [
     CommonModule,
@@ -29,7 +35,8 @@ const THIRDMODULES = [
     ReactiveFormsModule,
     RouterModule,
     // third libs
-    ...THIRDMODULES
+    ...THIRDMODULES,
+    CUSTOM_COMPONENT
   ],
 })
 export class SharedModule {}

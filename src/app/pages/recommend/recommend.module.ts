@@ -4,15 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { RecommendRoutingModule } from './recommend-routing.module';
 
 import { AutoUploadComponent } from './auto-upload/auto-upload.component';
+import { CommonQuestionComponent } from './common-question/common-question.component';
 
 const COMPONENTS_DECLARATIONS = [
-    AutoUploadComponent
+    AutoUploadComponent,
+    CommonQuestionComponent,
 ];
 const DIRECTIVE_DECLARATIONS = [
 
 ];
 const COMPONENTS_ENTRY = [];
-
 @NgModule({
     imports: [
         SharedModule,

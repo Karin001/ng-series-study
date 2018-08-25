@@ -15,7 +15,6 @@ import { ChildCommunicationComponent } from './component/component-communication
 import { ChildStyles1Component } from './component/component-styles/child/child1/child-styles.component';
 import { ChildStyles2Component } from './component/component-styles/child/child2/child-styles.component';
 import { ChildStyles3Component } from './component/component-styles/child/child3/child-styles.component';
-import { CodemirrorComponent } from '../child-common/codemirror/codemirror.component';
 import { DynamicComponentComponent } from './component/dynamic-component/dynamic-component.component';
 import { AddPersonComponent } from './component/dynamic-component/child/add-person.component';
 import { StomachComponent } from './conventional-usage/stomach/stomach.component';
@@ -53,7 +52,6 @@ const COMPONENTS_DECLARATIONS = [
     ChildStyles1Component,
     ChildStyles2Component,
     ChildStyles3Component,
-    CodemirrorComponent,
     DynamicComponentComponent,
     StomachComponent,
     PipeComponent,
