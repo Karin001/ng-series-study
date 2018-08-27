@@ -25,6 +25,7 @@ export class DynamicComponentComponent implements OnDestroy {
     clear() {
         this.container.clear();
         this.value = [];
+        this.componentRefArray = [];
     }
     value = [];
     getValueList() {
@@ -66,6 +67,7 @@ export class DynamicComponentComponent implements OnDestroy {
     clear() {
         this.container.clear();
         this.value = [];
+        this.componentRefArray = [];
     }
     value = [];
     getValueList() {

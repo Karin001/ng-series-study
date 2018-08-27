@@ -82,23 +82,28 @@
             </div>
         </nz-collapse-panel>
         <nz-collapse-panel nzHeader="Type XxxComponent in D:/xxx.component.ts is part of the declarations of 2 modules">
-        <nz-tag nzColor="#2db7f5">问题分析</nz-tag>
-        <div>
-            通过报错可以看到, <span class="key-word">XxxComponent</span>在两个模块当中被声明.但是如果只在一个模块中声明,另外个模块就没法使用了.那么,如何才能使得多个模块使用同一个组件呢?其实这点和前面这个问题差不多,最佳实践都是创建 <span class="key-word">share.module</span>,统一管理这些共享的组件.
-        </div>
-        <nz-tag nzColor="#87d068">解决方案</nz-tag>
-        <div>
-            与前面问题的不同之处是,引入UI库往往是引入一个module,那么 <span class="key-word">share.module</span>只需要import+export.而自己定义的跨模块组件,在 <span class="key-word">share.module</span>当中应该是declaration+export. <br/>
-            <nz-tabset>
-                <nz-tab nzTitle="share.module">
-                    <code-mirror [code]="code7"></code-mirror>
-                </nz-tab>
-                <nz-tab nzTitle="xxx.module">
-                    <code-mirror [code]="code8"></code-mirror>
-                </nz-tab>
-            </nz-tabset>
+            <nz-tag nzColor="#2db7f5">问题分析</nz-tag>
+            <div>
+                通过报错可以看到,
+                <span class="key-word">XxxComponent</span>在两个模块当中被声明.但是如果只在一个模块中声明,另外个模块就没法使用了.那么,如何才能使得多个模块使用同一个组件呢?其实这点和前面这个问题差不多,最佳实践都是创建
+                <span class="key-word">share.module</span>,统一管理这些共享的组件.
+            </div>
+            <nz-tag nzColor="#87d068">解决方案</nz-tag>
+            <div>
+                与前面问题的不同之处是,引入UI库往往是引入一个module,那么
+                <span class="key-word">share.module</span>只需要import+export.而自己定义的跨模块组件,在
+                <span class="key-word">share.module</span>当中应该是declaration+export.
+                <br/>
+                <nz-tabset>
+                    <nz-tab nzTitle="share.module">
+                        <code-mirror [code]="code7"></code-mirror>
+                    </nz-tab>
+                    <nz-tab nzTitle="xxx.module">
+                        <code-mirror [code]="code8"></code-mirror>
+                    </nz-tab>
+                </nz-tabset>
 
-        </div>
+            </div>
         </nz-collapse-panel>
     </nz-collapse>
 </div>

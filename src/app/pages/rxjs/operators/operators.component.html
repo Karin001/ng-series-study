@@ -1,0 +1,173 @@
+<div class="tutorial">
+    <h2 id="resume" id="resume">概述</h2>
+    操作符是RxJS的重中之重.按照用途,可以分为创建、转换、过滤、组合、错误处理、工具等.操作符数量庞大,有上百种之多.但并不是每种操作符的使用频率都是一样的,本节将演示一些常用的操作符.更多的操作符请参考
+    <a href="https://cn.rx.js.org/class/es6/Observable.js~Observable.html#static-method-create" target="view_window">RxJS 中文文档</a>.
+    <div class="info">
+       案例代码演示是我为了让各位开发者更好地理解而设计的.而本小节关于操作符的文字描述,均来自<a href="https://cn.rx.js.org/class/es6/Observable.js~Observable.html#static-method-create" target="view_window">RxJS 中文文档</a>.
+    </div>
+    <h2 id="create-operators">创建操作符</h2>
+    <h3 id="fromOf">from、of</h3>
+    public static from(ish: ObservableInput&lt;T&gt;, scheduler: Scheduler): Observable&lt;T&gt;
+    <br/> 从一个数组、类数组对象、Promise、迭代器对象或者类 Observable 对象创建一个 Observable.
+    <br/>public static of(values: ...T, scheduler: Scheduler): Observable&lt;T&gt;
+    <br/> 创建一个 Observable，它会依次发出由你提供的参数，最后发出完成通知。
+    <code-mirror [code]="code1"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo1()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                <div nz-row>
+                    <div nz-col nzSpan="12">from:{{demi1FromResult}}</div>
+                    <div nz-col nzSpan="12">of:{{demi1OfResult}}</div>
+                </div>
+            </div>
+        </div>
+    </nz-card>
+    <h3 id="interval">interval</h3>
+    public static interval(period: number, scheduler: Scheduler): Observable <br/>
+    interval 返回一个发出无限自增的序列整数, 你可以选择固定的时间间隔进行发送。 第一次并 没有立马去发送, 而是第一个时间段过后才发出。 默认情况下, 这个操作符使用 async 调度器来 提供时间的概念，但也可以给它传递任意调度器。
+    <code-mirror [code]="code2"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo2()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo2Result}}
+            </div>
+        </div>
+    </nz-card>
+    <h3 id="repeat">repeat</h3>
+    public repeat(count: number): Observable <br/>
+    返回的 Observable 重复由源 Observable 所发出的项的流，最多可以重复 count 次。
+    <code-mirror [code]="code3"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo3()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo3Result}}
+            </div>
+        </div>
+    </nz-card>
+    <h3 id="range">range</h3>
+    public static range(start: number, count: number, scheduler: Scheduler): Observable
+    <br/> 创建一个 Observable ，它发出指定范围内的数字序列。注意,range(3,5)并不是指取3~5的值.而是从3开始,取5个值.
+    <code-mirror [code]="code4"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo4()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo4Result}}
+            </div>
+        </div>
+    </nz-card>
+    <h3 id="timer">timer</h3>
+    public static timer(initialDelay: number | Date, period: number, scheduler: Scheduler): Observable <br/>
+    创建一个 Observable，该 Observable 在初始延时（initialDelay）之后开始发送并且在每个时间周期（ period）后发出自增的数字。timer 返回一个发出无限自增数列的 Observable, 具有一定的时间间隔，这个间隔由你来选择。 第一个发送发生在 初始延时之后. 初始延时就像是Date。 默认情况下, 这个操作符使用 async 调度器来提供时间的概念, 但是你也可以传递任何调度器。 如果时间周期没有被指定, 输出 Observable 只发出0。 否则,会发送一个无限数列。
+    <code-mirror [code]="code5"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo5()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo5Result}}
+            </div>
+        </div>
+    </nz-card>
+    <h2 id="trsfermation-operators">转换操作符</h2>
+    <h3 id="map">map</h3>
+    public map(project: function(value: T, index: number): R, thisArg: any): Observable&lt;R&gt; <br/>
+    将给定的 project 函数应用于源 Observable 发出的每个值，并将结果值作为 Observable 发出。
+    <code-mirror [code]="code6"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo6()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo6Result}}
+            </div>
+        </div>
+    </nz-card>
+    <h3 id="mapTo">mapTo</h3>
+    public mapTo(value: any): Observable <br/>
+    每次源 Observble 发出值时，都在输出 Observable 上发出给定的常量值。接收常量 value 作为参数，并每当源 Observable 发出值时都发出这个值。换句话说， 就是忽略实际的源值，然后简单地使用这个发送时间点以知道何时发出给定的 value.
+    <code-mirror [code]="code7"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo7()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo7Result}}
+            </div>
+        </div>
+    </nz-card>
+    <h3 id="scan">scan</h3>
+    public scan(accumulator: function(acc: R, value: T, index: number): R, seed: T | R): Observable&lt;R&gt; <br/>
+    返回一个 Observable， 该 Observable 对每个源 Observable 发出的值使用特定的累加器。 如果seed值提供了， 这个值会被累加器用作初始值。 如果seed值没有被提供， 源数据的第一项会被当做初始值。
+    <code-mirror [code]="code8"></code-mirror>
+    accumulator:计数器,是指当前最新的累加值.current:当前发出的值. <br/>
+    以我们的案例代码为例,在未发射值时,以10作为初始化的累加器(如果不指定,则默认第一个源数据作为初始值).当第一个数据过来时,累加器为10+1=11.第二个值过来时累加器为11+2=13.第三个值过来时是13+3=16.
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo8()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo8Result}}
+            </div>
+        </div>
+    </nz-card>
+    <h3 id="buffer">buffer</h3>
+    public buffer(closingNotifier: Observable&lt;any&gt;): Observable&lt;T[]&gt; <br/>
+    将 Observable 发出的值缓冲起来直到 closingNotifier 发出数据, 在这个时候在输出 Observable 上发出该缓冲区的值并且内部开启一个新的缓冲区, 等待下一个closingNotifier的发送。
+    <code-mirror [code]="code9"></code-mirror>
+    根据我们的案例代码,observable$1立即执行,并且间隔1秒发出值.而observable$2是延时2秒执行,间隔2秒发出数据.二者的对比在代码区可以看到.使用buffer后,observable$1的值发出后并不会直接被观察者接收,而是等到observable$2发出了,再统一交给观察者.
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo9()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo9Result}}
+            </div>
+        </div>
+    </nz-card>
+    <!-- <h3>bufferTime</h3>
+    <h3>bufferCount</h3>
+    <h3>concatMap</h3>
+    <h3>switchMap</h3> -->
+</div>
+<nz-anchor class="anchor">
+    <nz-link nzHref="#resume" nzTitle="概述"></nz-link>
+    <nz-link nzHref="#create-operators" nzTitle="创建操作符">
+        <nz-link nzHref="#fromOf" nzTitle="from、of"></nz-link>
+        <nz-link nzHref="#interval" nzTitle="interval"></nz-link>
+        <nz-link nzHref="#repeat" nzTitle="repeat"></nz-link>
+        <nz-link nzHref="#range" nzTitle="range"></nz-link>
+        <nz-link nzHref="#timer" nzTitle="timer"></nz-link>
+    </nz-link>
+    <nz-link nzHref="#trsfermation-operators" nzTitle="转换操作符">
+        <nz-link nzHref="#map" nzTitle="map"></nz-link>
+        <nz-link nzHref="#mapTo" nzTitle="mapTo"></nz-link>
+        <nz-link nzHref="#scan" nzTitle="scan"></nz-link>
+        <nz-link nzHref="#buffer" nzTitle="buffer"></nz-link>
+    </nz-link>
+</nz-anchor>
