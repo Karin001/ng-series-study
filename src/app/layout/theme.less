@@ -4,6 +4,10 @@
 .tutorial {
     float: left;
     width: 80%;
+    padding-right: 24px;
+    @media screen and (max-width: 1249px) {
+        width: 100%;
+    }
     line-height: 24px;
 }
 
@@ -15,13 +19,24 @@
 //右侧导航区
 .anchor {
     float: left;
-    padding-left: 24px;
+    position: fixed;
+    right: 0px;//使得右侧导航区贴近右端
     nz-link {
         line-height: 18px; //修复bug因行高不够而导致无法完全显示英文,如g字母只能显示一半高度
         a {
             //修复bug点击锚点时有下划线
             text-decoration: none;
         }
+    }
+    .ant-anchor {
+        //导航区整体偏窄,拉宽点
+        min-width: 210px;
+    }
+}
+
+@media screen and (max-width: 1249px) {
+    .anchor {
+        display: none;
     }
 }
 

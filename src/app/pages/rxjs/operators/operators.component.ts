@@ -1,6 +1,6 @@
-import { debounceTime, sampleTime, take, repeat, map, mapTo, scan, buffer } from 'rxjs/operators';
+import { debounceTime, sampleTime, take, repeat, map, mapTo, scan, buffer, mergeMap } from 'rxjs/operators';
 import { Component } from '@angular/core';
-import { Observable, of, range, interval, timer, Scheduler, from } from 'rxjs';
+import { Observable, of, range, interval, timer, Scheduler, from, merge } from 'rxjs';
 @Component({
     templateUrl: './operators.component.html',
     styleUrls: ['operators.component.less']
@@ -147,8 +147,8 @@ export class OperatorsComponent {
     demo9Result = '';
     demo9() {
         this.demo9Result = '';
-        const observable$1 = timer(0,1000).pipe(take(5));//    0 1 2 3 4
-        const observable$2 = timer(2000,2000).pipe(take(2));//     0   1
+        const observable$1 = timer(0, 1000).pipe(take(5));//    0 1 2 3 4
+        const observable$2 = timer(2000, 2000).pipe(take(2));//     0   1
         observable$1.pipe(buffer(observable$2)).subscribe(value => {
             this.demo9Result += value + ' ';
         });
