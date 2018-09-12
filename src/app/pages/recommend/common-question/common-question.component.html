@@ -29,7 +29,7 @@
                 <code-mirror [code]="code3"></code-mirror>
             </div>
         </nz-collapse-panel>
-        <nz-collapse-panel nzHeader="为什么已经在模块中引入UI组件了,系统依然无法识别新的组件">
+        <nz-collapse-panel nzHeader="'xxx' is not a known element">
             <nz-tag nzColor="#2db7f5">问题分析</nz-tag>
             <div>
                 许多开发者吐槽,明明在
@@ -103,6 +103,28 @@
                     </nz-tab>
                 </nz-tabset>
 
+            </div>
+        </nz-collapse-panel>
+        <nz-collapse-panel nzHeader="NullInjectorError: No provider for XxxService!">
+            <nz-tag nzColor="#2db7f5">问题分析</nz-tag>
+            <div>
+                这里是指该服务没有对应的注册商.这种错误常见于新手开发者,通常是对服务没有明确的概念.具体服务的概念请参考
+                <a href="https://angular.ink/angular/service" target="view_window">这里</a>.
+            </div>
+            <nz-tag nzColor="#87d068">解决方案</nz-tag>
+            <div>
+                将服务添加至注册商即可.注册方式分为
+                <span class="key-word">组件级注册</span>和
+                <span class="key-word">模块级注册</span>.二者的区别在
+                <a href="https://angular.ink/angular/service" target="view_window">这里</a>已经解释的非常清楚了,不再赘述.
+                <nz-tabset>
+                    <nz-tab nzTitle="share.module">
+                        <code-mirror [code]="code9"></code-mirror>
+                    </nz-tab>
+                    <nz-tab nzTitle="xxx.module">
+                        <code-mirror [code]="code10"></code-mirror>
+                    </nz-tab>
+                </nz-tabset>
             </div>
         </nz-collapse-panel>
     </nz-collapse>

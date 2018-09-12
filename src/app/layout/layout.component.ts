@@ -1,5 +1,5 @@
-import { Component, ViewEncapsulation,AfterViewInit} from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Component, ViewEncapsulation, AfterViewInit } from '@angular/core';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { fromEvent } from 'rxjs';
 
 @Component({
@@ -17,10 +17,23 @@ export class LayoutComponent implements AfterViewInit {
     });
   }
   ngAfterViewInit() {
-   /*  console.log(document.body.scrollHeight );
-    console.log(document.body.clientHeight );
+    /* let element;
+    let elementHeight;
+    setTimeout(() => {
+      element = document.body.querySelector('.ant-anchor');
+      elementHeight = Number.parseInt(window.getComputedStyle(element).height);
+    }, 0);
+    let maxHeight;
+    setTimeout(() => {
+      maxHeight = document.documentElement.scrollTop || document.body.scrollHeight - document.body.clientHeight;
+    }, 0);
     fromEvent(window, 'scroll').subscribe((event) => {
-      console.log(event);
+      const scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollHeight > maxHeight - 100) {
+        const gap = scrollHeight - (maxHeight - 100);
+        const height = elementHeight - gap - 230;
+        element.setAttribute('style', `height: ${height}px;`);
+      }
     }); */
   }
 }

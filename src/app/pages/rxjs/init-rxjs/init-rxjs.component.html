@@ -60,8 +60,8 @@
         </li>
     </ul>
     RxJS在不同的环境中,用法有略微差别,如引用等.本文的所有案例以ng环境为背景.
-    <div class="warning">
-       RxJS章节的效果演示部分,按钮如果按多次,可能会导致同时出现多个订阅影响效果,建议只执行一次.
+    <div class="danger">
+        RxJS章节的效果演示部分,按钮如果按多次,可能会导致同时出现多个订阅影响效果,建议只执行一次.
     </div>
     <h2 id="Observable">可观察对象(Observable)</h2>
     <span class="key-word">create</span>可以创建一个操作符,
@@ -84,7 +84,7 @@
     <nz-card class="card demo1">
         <div nz-row>
             <div nz-col nzSpan="12">
-                <button (click)="demo1()" nz-button nzType="primary">开始计时</button>
+                <button (click)="demo1()" nz-button nzType="primary">演示</button>
             </div>
             <div nz-col nzSpan="12">
                 {{demo1Result}}
@@ -117,7 +117,7 @@
     <nz-card class="card demo1">
         <div nz-row>
             <div nz-col nzSpan="12">
-                <button (click)="demo2()" nz-button nzType="primary">开始计时</button>
+                <button (click)="demo2()" nz-button nzType="primary">演示</button>
             </div>
             <div nz-col nzSpan="12">
                 {{demo2Result}}
@@ -128,9 +128,9 @@
     操作符就是Observable提供的方法.当你调用操作符时,Observable并不会改变,而且操作符会返回一个全新的Observable.我们再次改造计时器的案例,这次不再使用这么原始的方式,而是使用操作符来完成Observable的创建、延时等操作.
     <code-mirror [code]="code4"></code-mirror>
     <span class="key-word">timer</span>:第一个参数是延时执行时间,第二个参数是间隔执行时间.自身会返回一个Observable.
+    <span class="key-word">timer(0,1000)</span>是指延时0秒执行,每隔1秒发出一个值.他会从0开始发送,无限递增.
     <br/>
     <span class="key-word">pipe</span>:管道,可以对一些操作符进行链式调用.
-    <span class="key-word">timer(0,1000)</span>是指延时0秒执行,每隔1秒发出一个值.他会从0开始发送,无限递增.
     <br/>
     <span class="key-word">take</span>:指执行的次数.
     <span class="key-word">take(11)</span>则只发送前11个值.
@@ -138,7 +138,7 @@
     <nz-card class="card demo1">
         <div nz-row>
             <div nz-col nzSpan="12">
-                <button (click)="demo3()" nz-button nzType="primary">开始计时</button>
+                <button (click)="demo3()" nz-button nzType="primary">演示</button>
             </div>
             <div nz-col nzSpan="12">
                 {{demo3Result}}
@@ -146,16 +146,45 @@
         </div>
     </nz-card>
     <h2 id="custom-operator">自定义操作符</h2>
-    我们已经知道,所谓的操作符,就是对Observable进行改造.现在我们来自定义一个操作符,用来放大之前Observable,将其值每个都乘以10.
+    我们已经知道,所谓的操作符,就是对Observable进行改造.现在我们来自定义一个操作符,用来放大之前的Observable,将其值每个都乘以10.
     <code-mirror [code]="code5"></code-mirror>
     <h3>运行结果</h3>
     <nz-card class="card demo1">
         <div nz-row>
             <div nz-col nzSpan="12">
-                <button (click)="demo4()" nz-button nzType="primary">执行方法</button>
+                <button (click)="demo4()" nz-button nzType="primary">演示</button>
             </div>
             <div nz-col nzSpan="12">
                 {{demo4Result}}
+            </div>
+        </div>
+    </nz-card>
+    <h2 id="Subject">Subject</h2>
+    Subject 是一种特殊类型的 Observable，它允许将值多播给多个观察者，所以 Subject 是多播的，而普通的 Observables 是单播的(每个已订阅的观察者都拥有 Observable 的独立执行)。
+    <br/> 每个 Subject 都是观察者。 - Subject 是一个有如下方法的对象： next(v)、error(e) 和 complete() 。要给 Subject 提供新值，只要调用 next(theValue)，它会将值多播给已注册监听该
+    Subject 的观察者们。
+    <code-mirror [code]="code6"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo6()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo6Result}}
+            </div>
+        </div>
+    </nz-card>
+    因为 Subject 是观察者，这也就在意味着你可以把 Subject 作为参数传给任何 Observable 的 subscribe 方法
+    <code-mirror [code]="code7"></code-mirror>
+    <h3>运行结果</h3>
+    <nz-card class="card demo1">
+        <div nz-row>
+            <div nz-col nzSpan="12">
+                <button (click)="demo7()" nz-button nzType="primary">演示</button>
+            </div>
+            <div nz-col nzSpan="12">
+                {{demo7Result}}
             </div>
         </div>
     </nz-card>
@@ -167,4 +196,5 @@
     <nz-link nzHref="#Observer" nzTitle="Observer(观察者)"></nz-link>
     <nz-link nzHref="#Operators" nzTitle="Operators(操作符)"></nz-link>
     <nz-link nzHref="#custom-operator" nzTitle="自定义操作符"></nz-link>
+    <nz-link nzHref="#Subject" nzTitle="Subject"></nz-link>
 </nz-anchor>

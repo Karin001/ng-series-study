@@ -1,6 +1,6 @@
 import { take } from 'rxjs/operators';
 import { Component } from '@angular/core';
-import { Observable, of, timer } from 'rxjs';
+import { Observable, of, timer, Subject } from 'rxjs';
 @Component({
     templateUrl: './init-rxjs.component.html',
     styleUrls: ['init-rxjs.component.less']
@@ -9,7 +9,7 @@ export class InitRxjsComponent {
     code1 = `
     <div nz-row>
         <div nz-col nzSpan="12">
-            <button (click)="demo1()" nz-button nzType="primary">开始计时</button>
+            <button (click)="demo1()" nz-button nzType="primary">演示</button>
         </div>
         <div nz-col nzSpan="12">
             {{demo1Result}}
@@ -147,6 +147,56 @@ export class InitRxjsComponent {
         this.customObservable(observable$).subscribe(value => {
             this.demo4Result += value + ' ';
         });
+    }
+    `;
+    demo6Result = '';
+    demo6() {
+        const subject = new Subject();
+        subject.subscribe({
+            next: (value) => this.demo6Result += 'observerA: ' + value + ' '
+        });
+        subject.subscribe({
+            next: (value) => this.demo6Result += 'observerB: ' + value + ' '
+        });
+        subject.next(1);
+    }
+    code6 = `
+    demo6Result = '';
+    demo6() {
+        const subject = new Subject();
+        subject.subscribe({
+            next: (value) => this.demo6Result += 'observerA: ' + value + ' '
+        });
+        subject.subscribe({
+            next: (value) => this.demo6Result += 'observerB: ' + value + ' '
+        });
+        subject.next(1);
+    }
+    `;
+    demo7Result = '';
+    demo7() {
+        this.demo7Result = '';
+        const subject = new Subject();
+        subject.subscribe({
+            next: (value) => this.demo7Result += 'observerA: ' + value + ' '
+        });
+        subject.subscribe({
+            next: (value) => this.demo7Result += 'observerB: ' + value + ' '
+        });
+        of(1, 2).subscribe(subject);
+    }
+    code7 = `
+    demo7Result = '';
+    demo7() {
+        this.demo7Result = '';
+        const subject = new Subject();
+        subject.subscribe({
+            next: (value) => this.demo7Result += 'observerA: ' + value + ' '
+        });
+        subject.subscribe({
+            next: (value) => this.demo7Result += 'observerB: ' + value + ' '
+        });
+        of(1, 2).subscribe(subject);
     }
     `;
 }

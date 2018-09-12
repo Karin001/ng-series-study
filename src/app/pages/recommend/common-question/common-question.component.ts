@@ -100,4 +100,20 @@ export class CommonQuestionComponent {
   })
   export class XxxModule { }
   `;
+  code9 = `
+  import { XxxService } from './xxx.service';
+
+  @Component({
+      providers: [XxxService]
+  })
+  `;
+  code10 = `
+  import { XxxService } from './xxx.service';
+
+  @NgModule({
+      providers:[
+          XxxService
+      ]
+  })
+  `;
 }
