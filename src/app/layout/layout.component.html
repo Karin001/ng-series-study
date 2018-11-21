@@ -1,20 +1,23 @@
 <nz-layout class="layout">
   <nz-header class="header">
+    <i nz-icon type="bars" class="menu-bar" theme="outline"></i>
     <span class="title">Angular系列学习
     </span>
+    <a href="https://github.com/Eve-1995/ng-series-study">
+        <i nz-icon type="github" class="git" theme="outline"></i>
+        <span>GitHub</span>
+    </a>
   </nz-header>
 
   <nz-layout>
-    <nz-sider [nzWidth]="200" style="background:#fff">
+    <nz-sider [nzWidth]="240" style="background:#fff">
       <layout-sidebar></layout-sidebar>
     </nz-sider>
     <nz-layout  class="main-body">
-      <nz-content >
+      <nz-content class="content">
         <router-outlet></router-outlet>
-      </nz-content>
-
         <div class="footer">
-          <span>
+          <p>
             Powered by
             <a routerLink="/project/author">
               <strong>
@@ -22,12 +25,15 @@
               </strong>
             </a> ©2018 | Hosted by
             <a href="https://pages.coding.me" target="view_window" style="font-weight: bold">Coding Pages</a>
-          </span>
-          <br/>
-          <span>
+          </p>
+
+          <p>
             如需转载请标明出处
-          </span>
+          </p>
         </div>
+      </nz-content>
+
+
 
     </nz-layout>
   </nz-layout>
