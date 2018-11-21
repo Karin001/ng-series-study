@@ -1,22 +1,19 @@
 <nz-layout class="layout">
-  <nz-header>
-    <div class="logo"></div>
-    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
-      <li nz-menu-item>nav 1</li>
-      <li nz-menu-item>nav 2</li>
-      <li nz-menu-item>nav 3</li>
-    </ul>
+  <nz-header class="header">
+    <span class="title">Angular系列学习
+    </span>
   </nz-header>
+
   <nz-layout>
     <nz-sider [nzWidth]="200" style="background:#fff">
       <layout-sidebar></layout-sidebar>
     </nz-sider>
-    <nz-layout style="padding:0 24px 24px">
-      <nz-content style="background:#fff; padding: 24px; min-height: 280px;">
+    <nz-layout  class="main-body">
+      <nz-content >
         <router-outlet></router-outlet>
       </nz-content>
-      <nz-footer>
-        <div class="">
+
+        <div class="footer">
           <span>
             Powered by
             <a routerLink="/project/author">
@@ -31,7 +28,7 @@
             如需转载请标明出处
           </span>
         </div>
-      </nz-footer>
+
     </nz-layout>
   </nz-layout>
 </nz-layout>
